@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KSSPL | Digital Transformation in Transport & Logistics ERP</title>
+    <meta name="description"
+        content="Kataria Software Solution Private Limited (KSSPL) is revolutionizing the logistics & transport industry with cutting-edge ERP and TMS solutions.">
+    <meta name="keywords"
+        content="KSSPL, logistics software, transport management system, TMS, ERP, supply chain, digital transformation">
+    <meta name="author" content="Kataria Software Solution Private Limited">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+    </style>
+</head>
+
+<body>
+
+    <div id="app" class="min-h-screen flex flex-col">
+
+        <header class="bg-white shadow-md sticky top-0 z-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center h-20">
+
+                    <a href="#home" class="flex items-center space-x-3 text-2xl font-bold text-gray-900"
+                        aria-label="KSSPL Home">
+                        <img src="company logo.png" alt="Company Logo" width="100" height="100">
+                        <!-- <div class="w-8 h-8 rounded-lg bg-yellow-600 flex items-center justify-center text-white font-extrabold text-sm shadow-md">K</div> -->
+                        <span class="text-gray-900 hidden sm:inline">KSSPL</span>
+                        <span class="text-yellow-700 text-sm hidden sm:inline font-medium">Logistics Tech</span>
+                    </a>
+
+                    <nav class="hidden md:flex space-x-6 text-gray-700 font-medium" id="desktop-nav">
+                        <a href="#home" class="nav-link hover:text-yellow-700 transition duration-150">Home</a>
+                        <a href="#about" class="nav-link hover:text-yellow-700 transition duration-150">About</a>
+                        <a href="services.html" class="hover:text-yellow-700 transition duration-150">Services</a>
+                        <a href="testimonials.html"
+                            class="hover:text-yellow-700 transition duration-150">Testimonials</a>
+                        <a href="#contact" class="nav-link hover:text-yellow-700 transition duration-150">Contact</a>
+                        <a href="#career"
+                            class="nav-link text-white bg-yellow-600 px-4 py-2 rounded-lg hover:bg-yellow-700 transition duration-150">Career</a>
+                    </nav>
+
+                    <button id="mobile-menu-button" type="button"
+                        class="md:hidden text-gray-500 hover:text-gray-700 focus:outline-none focus:ring-2 focus:ring-yellow-600 rounded-lg p-2"
+                        aria-controls="mobile-menu" aria-expanded="false">
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="md:hidden hidden" id="mobile-menu">
+                <nav class="px-2 pt-2 pb-3 space-y-1 sm:px-3 text-center">
+                    <a href="#home"
+                        class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50">Home</a>
+                    <a href="#about"
+                        class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50">About</a>
+                    <a href="services.html"
+                        class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50">Services</a>
+                    <a href="testimonials.html"
+                        class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50">Testimonials</a>
+                    <a href="#contact"
+                        class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50">Contact</a>
+                    <a href="#career"
+                        class="nav-link block px-3 py-2 rounded-md text-base font-medium text-white bg-yellow-600 hover:bg-yellow-700">Career</a>
+                </nav>
+            </div>
+        </header>
+
+        <main class="flex-grow">
+            <section id="page-home" class="page-content hidden">
+                <div class="relative bg-white pt-10 pb-20 overflow-hidden">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div class="text-center lg:text-left">
+                            <h1 class="text-5xl tracking-tight font-extrabold text-gray-900 sm:text-6xl md:text-7xl">
+                                Driving Digital Transformation
+                                <span class="block text-yellow-600 mt-2">in Transport & Logistics</span>
+                            </h1>
+                            <p
+                                class="mt-6 max-w-md mx-auto text-xl text-gray-500 sm:text-lg md:mt-8 md:max-w-3xl lg:mx-0">
+                                Kataria Software Solution Private Limited (KSSPL) is revolutionizing the logistics &
+                                transport industry with cutting-edge software solutions designed to streamline
+                                operations and drive digital transformation.
+                            </p>
+                            <div class="mt-10 sm:flex sm:justify-center lg:justify-start">
+                                <div class="rounded-lg shadow">
+                                    <a href="#contact"
+                                        class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-lg text-white bg-yellow-600 hover:bg-yellow-700 md:py-4 md:text-lg md:px-10 transition duration-150">
+                                        Request a Demo
+                                    </a>
+                                </div>
+                                <div class="mt-3 rounded-lg shadow sm:mt-0 sm:ml-4">
+                                    <a href="services.html"
+                                        class="w-full flex items-center justify-center px-8 py-3 border border-yellow-600 text-base font-medium rounded-lg text-yellow-600 bg-white hover:bg-gray-50 md:py-4 md:text-lg md:px-10 transition duration-150">
+                                        Explore ERP Solutions
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="page-about" class="page-content hidden py-16 bg-white">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <h2 class="text-4xl font-extrabold text-gray-900 text-center mb-12">About KSSPL</h2>
+
+                    <div class="bg-gray-50 p-8 rounded-xl shadow-lg mb-12">
+                        <p class="text-2xl text-gray-700 text-center italic leading-relaxed">
+                            "KSSPL was founded with a singular mission: to empower the transportation industry through
+                            digital transformation."
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                        <div class="p-6 bg-gray-100 rounded-xl shadow-md text-center">
+                            <h3 class="text-xl font-semibold text-yellow-700">Decade of Excellence</h3>
+                            <p class="mt-2 text-gray-600">Over 10 years delivering customized software solutions to the
+                                transportation industry</p>
+                        </div>
+                        <div class="p-6 bg-gray-100 rounded-xl shadow-md text-center">
+                            <h3 class="text-xl font-semibold text-yellow-700">Innovation-Driven</h3>
+                            <p class="mt-2 text-gray-600">Leveraging cutting-edge technology to enhance operational
+                                efficiency and reduce costs</p>
+                        </div>
+                        <div class="p-6 bg-gray-100 rounded-xl shadow-md text-center">
+                            <h3 class="text-xl font-semibold text-yellow-700">Industry Trust</h3>
+                            <p class="mt-2 text-gray-600">Trusted by logistics leaders for reliable, efficient, and
+                                scalable software services</p>
+                        </div>
+                        <div class="p-6 bg-gray-100 rounded-xl shadow-md text-center">
+                            <h3 class="text-xl font-semibold text-yellow-700">Dedicated Support</h3>
+                            <p class="mt-2 text-gray-600">Committed team focused on optimizing client operations and
+                                ensuring success</p>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col items-center text-center mt-16 p-8 bg-yellow-50 rounded-xl shadow-xl">
+                        <h3 class="text-3xl font-bold text-gray-900 mb-4">Leadership & Vision</h3>
+                        <div
+                            class="w-40 h-40 bg-gray-300 rounded-full mb-4 flex items-center justify-center text-gray-600 text-sm">
+                            <img src="Mr. Yogesh.png" alt="Yogesh JI Profile" width="200" height="200">
+                        </div>
+                        <p class="text-2xl font-semibold text-yellow-700">Mr. Yogesh Kataria</p>
+                        <p class="text-lg text-gray-600">Managing Director, KSSPL</p>
+                        <p class="mt-4 max-w-4xl text-gray-700">
+                            With nearly two decades of experience in the logistics industry since 2004, Mr. Kataria
+                            envisioned a smarter, tech-driven approach to logistics management. Under his leadership,
+                            KSSPL continues to empower logistics organizations with intelligent ERP solutions that
+                            enhance transparency, efficiency, and control.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="page-contact" class="page-content hidden py-16 bg-gray-50">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <h2 class="text-4xl font-extrabold text-gray-900 text-center mb-12">Let's Drive Your Success</h2>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+
+                        <div class="space-y-8 p-8 bg-white rounded-xl shadow-lg">
+                            <h3 class="text-2xl font-bold text-yellow-700">Get in Touch</h3>
+
+                            <div class="space-y-4">
+                                <p class="flex items-center space-x-3 text-lg text-gray-700">
+                                    <span class="text-yellow-600 text-2xl">📞</span>
+                                    <span>**Phone:** 9694395555 | 7665395555</span>
+                                </p>
+                                <p class="flex items-center space-x-3 text-lg text-gray-700">
+                                    <span class="text-yellow-600 text-2xl">📧</span>
+                                    <span>**Email:** kumaryogesh4486@gmail.com</span>
+                                </p>
+                                <p class="flex items-center space-x-3 text-lg text-gray-700">
+                                    <span class="text-yellow-600 text-2xl">🌐</span>
+                                    <span>**Website:** <a href="http://www.tmslive.in" target="_blank"
+                                            class="text-blue-600 hover:underline">tmslive.in</a> | <a
+                                            href="http://www.ksspl.co.in" target="_blank"
+                                            class="text-blue-600 hover:underline">Ksspl.co.in</a></span>
+                                </p>
+                            </div>
+
+                            <div class="mt-8 pt-6 border-t border-gray-200">
+                                <h4 class="text-xl font-semibold text-gray-800 mb-4">Follow Us</h4>
+                                <div class="flex space-x-6 text-2xl">
+                                    <a href="javascript:void(0)"
+                                        class="text-blue-700 hover:text-blue-900 transition duration-150"
+                                        aria-label="LinkedIn"></a>
+                                    <a href="javascript:void(0)"
+                                        class="text-blue-600 hover:text-blue-800 transition duration-150"
+                                        aria-label="Facebook">📘</a>
+                                    <a href="javascript:void(0)"
+                                        class="text-pink-600 hover:text-pink-800 transition duration-150"
+                                        aria-label="Instagram">📸</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="p-8 bg-white rounded-xl shadow-lg">
+                            <h3 class="text-2xl font-bold text-yellow-700 mb-6">Request a Demo</h3>
+                            <form id="contact-form" action="javascript:void(0)" onsubmit="handleContactSubmit(event)"
+                                class="space-y-4">
+                                <div>
+                                    <label for="name" class="block text-sm font-medium text-gray-700">Full Name</label>
+                                    <input type="text" id="name" name="name" required
+                                        class="mt-1 block w-full border border-gray-300 rounded-lg shadow-sm p-3 focus:ring-yellow-500 focus:border-yellow-500">
+                                </div>
+                                <div>
+                                    <label for="email" class="block text-sm font-medium text-gray-700">Work
+                                        Email</label>
+                                    <input type="email" id="email" name="email" required
+                                        class="mt-1 block w-full border border-gray-300 rounded-lg shadow-sm p-3 focus:ring-yellow-500 focus:border-yellow-500">
+                                </div>
+                                <div>
+                                    <label for="message" class="block text-sm font-medium text-gray-700">Your
+                                        Inquiry</label>
+                                    <textarea id="message" name="message" rows="4" required
+                                        class="mt-1 block w-full border border-gray-300 rounded-lg shadow-sm p-3 focus:ring-yellow-500 focus:border-yellow-500"></textarea>
+                                </div>
+                                <button type="submit"
+                                    class="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-lg font-medium text-white bg-yellow-600 hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500 transition duration-150">
+                                    Submit Request
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="page-career" class="page-content hidden py-16 bg-white">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                    <h2 class="text-4xl font-extrabold text-gray-900 mb-4">Career Opportunities</h2>
+                    <p class="text-xl text-gray-600 mb-12 max-w-3xl mx-auto">
+                        Join our mission to drive digital transformation in the logistics industry. We are looking for
+                        innovators, problem-solvers, and dedicated professionals.
+                    </p>
+
+                    <div class="space-y-6 max-w-4xl mx-auto">
+                        <div class="p-6 bg-gray-50 rounded-xl shadow-md flex justify-between items-center flex-wrap">
+                            <div>
+                                <h3 class="text-2xl font-semibold text-gray-800">Software Engineer (Backend)</h3>
+                                <p class="text-gray-600" id="pos-1">Location: Remote/India | Experience: 3+ Years</p>
+                            </div>
+                            <button onclick="openApplicationModal('Software Engineer (Backend)')"
+                                class="mt-3 sm:mt-0 text-yellow-600 border border-yellow-600 px-4 py-2 rounded-lg hover:bg-yellow-50 transition duration-150">Apply
+                                Now</button>
+                        </div>
+                        <div class="p-6 bg-gray-50 rounded-xl shadow-md flex justify-between items-center flex-wrap">
+                            <div>
+                                <h3 class="text-2xl font-semibold text-gray-800">Logistics ERP Consultant</h3>
+                                <p class="text-gray-600" id="pos-2">Location: India | Experience: 5+ Years</p>
+                            </div>
+                            <button onclick="openApplicationModal('Logistics ERP Consultant')"
+                                class="mt-3 sm:mt-0 text-yellow-600 border border-yellow-600 px-4 py-2 rounded-lg hover:bg-yellow-50 transition duration-150">Apply
+                                Now</button>
+                        </div>
+                        <div class="p-6 bg-gray-50 rounded-xl shadow-md flex justify-between items-center flex-wrap">
+                            <div>
+                                <h3 class="text-2xl font-semibold text-gray-800">Mobile App Developer (React Native)
+                                </h3>
+                                <p class="text-gray-600" id="pos-3">Location: Remote/India | Experience: 2+ Years</p>
+                            </div>
+                            <button onclick="openApplicationModal('Mobile App Developer (React Native)')"
+                                class="mt-3 sm:mt-0 text-yellow-600 border border-yellow-600 px-4 py-2 rounded-lg hover:bg-yellow-50 transition duration-150">Apply
+                                Now</button>
+                        </div>
+                    </div>
+
+                    <div class="mt-12 text-center">
+                        <p class="text-xl text-gray-700">Didn't find what you were looking for?</p>
+                        <button onclick="openApplicationModal('Future Consideration (General Application)')"
+                            class="text-yellow-700 hover:text-yellow-800 font-medium mt-2 inline-block border-b border-yellow-700">Send
+                            us your resume for future consideration</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="bg-gray-900 text-white py-10 mt-auto">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center border-t border-gray-700 pt-6 mt-6">
+                    <p class="text-sm text-gray-400">&copy; 2024 Kataria Software Solution Private Limited (KSSPL). All
+                        rights reserved.</p>
+                    <p class="text-xs text-gray-500 mt-1">Accelerating success through tech-driven transportation
+                        solutions.</p>
+                </div>
+            </div>
+        </footer>
+
+        <div id="application-modal"
+            class="fixed inset-0 bg-gray-900 bg-opacity-75 hidden items-center justify-center z-[100] p-4"
+            onclick="closeApplicationModal()">
+            <div class="bg-white rounded-xl shadow-2xl w-full max-w-lg overflow-y-auto max-h-[90vh]"
+                onclick="event.stopPropagation()">
+
+                <div class="flex justify-between items-center p-6 border-b border-gray-100">
+                    <h3 class="text-2xl font-bold text-yellow-700">Submit Your Application</h3>
+                    <button onclick="closeApplicationModal()"
+                        class="text-gray-500 hover:text-gray-700 text-2xl leading-none">&times;</button>
+                </div>
+
+                <div class="p-6">
+                    <div id="whatsapp-warning"
+                        class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mb-4 rounded-lg" role="alert">
+                        <p class="font-bold">Important: Resume Attachment</p>
+                        <p class="text-sm">Due to WhatsApp limitations, you **must manually attach your PDF resume**
+                            after the chat opens.</p>
+                    </div>
+
+                    <form id="career-form" onsubmit="handleApplicationSubmit(event)" class="space-y-4">
+
+                        <input type="hidden" id="position-applied" name="position" value="">
+
+                        <div class="p-3 bg-yellow-50 rounded-lg">
+                            <label class="block text-sm font-medium text-yellow-800">Applying For:</label>
+                            <span id="display-position" class="text-lg font-semibold text-gray-900"></span>
+                        </div>
+
+                        <div>
+                            <label for="applicant-name" class="block text-sm font-medium text-gray-700">Full Name
+                                *</label>
+                            <input type="text" id="applicant-name" name="name" required
+                                class="mt-1 block w-full border border-gray-300 rounded-lg shadow-sm p-3 focus:ring-yellow-500 focus:border-yellow-500">
+                        </div>
+
+                        <div>
+                            <label for="applicant-email" class="block text-sm font-medium text-gray-700">Email *</label>
+                            <input type="email" id="applicant-email" name="email" required
+                                class="mt-1 block w-full border border-gray-300 rounded-lg shadow-sm p-3 focus:ring-yellow-500 focus:border-yellow-500">
+                        </div>
+
+                        <div>
+                            <label for="applicant-phone" class="block text-sm font-medium text-gray-700">Phone (for
+                                WhatsApp) *</label>
+                            <input type="tel" id="applicant-phone" name="phone" required pattern="[0-9]{10,15}"
+                                title="Please enter a valid phone number"
+                                class="mt-1 block w-full border border-gray-300 rounded-lg shadow-sm p-3 focus:ring-yellow-500 focus:border-yellow-500">
+                        </div>
+
+                        <div>
+                            <label for="applicant-resume" class="block text-sm font-medium text-gray-700">Upload Resume
+                                (PDF only) *</label>
+                            <input type="file" id="applicant-resume" name="resume" accept=".pdf" required
+                                class="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-yellow-50 file:text-yellow-700 hover:file:bg-yellow-100">
+                            <p class="mt-1 text-xs text-gray-500">Remember to attach this file manually in WhatsApp.</p>
+                        </div>
+
+                        <div>
+                            <label for="applicant-message" class="block text-sm font-medium text-gray-700">Message
+                                (Optional)</label>
+                            <textarea id="applicant-message" name="message" rows="3"
+                                class="mt-1 block w-full border border-gray-300 rounded-lg shadow-sm p-3 focus:ring-yellow-500 focus:border-yellow-500"></textarea>
+                        </div>
+
+                        <button type="submit"
+                            class="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-md text-lg font-medium text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition duration-150 mt-6">
+                            Submit Application & Open WhatsApp
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,90 @@
+/* style.css */
+
+/* Global styles using the Inter font specified in index.html */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f7f9fb;
+}
+
+/* Custom scrollbar for aesthetics */
+body::-webkit-scrollbar {
+    width: 8px;
+}
+body::-webkit-scrollbar-thumb {
+    background-color: #ff8c00; /* Darker orange for the thumb */
+    border-radius: 4px;
+}
+
+/* Style for active navigation link */
+.nav-link.active {
+    color: #ff8c00; /* KSSPL Orange */
+    font-weight: 600;
+}
+
+/* Additional utility class for logo containers (used in Testimonials section) */
+/* .logo-box {
+    height: 180px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} */
+
+/* .logo-box img {
+    max-height: 100%;
+    width: auto;
+    object-fit: contain;
+} */
+@keyframes scroll-left {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); } /* Move half the width of the duplicated content */
+}
+        .logo-scroll-container {
+            /* Create a single line and hide content overflow */
+            overflow: hidden;
+            white-space: nowrap;
+            mask-image: linear-gradient(to right, 
+                transparent, 
+                black 10%, 
+                black 90%, 
+                transparent); /* Fades the logos at the edges */
+        }
+
+        .logo-marquee {
+            /* This is the element that holds the content and animates */
+            display: flex;
+            width: fit-content; /* Ensure the marquee is wide enough to hold doubled content */
+            animation: scroll-left 30s linear infinite; /* Control speed here */
+        }
+
+        .logo-box {
+            /* Styles for individual logo cards */
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            height: 96px; /* h-24 */
+            min-width: 192px; /* w-48 */
+            padding: 1rem; /* p-4 */
+            margin-right: 2rem; /* space-x-8 */
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+        
+        /* Pause animation on hover */
+        .logo-scroll-container:hover .logo-marquee {
+            animation-play-state: paused;
+        }
+
+        .logo-box:hover {
+            transform: scale(1.05);
+        }
+
+        .logo-box img {
+            max-height: 180%;
+            max-width: 200%;
+            object-fit: contain;
+            transition: filter 0.3s ease;
+        }
+
+        .logo-box:hover img {
+            filter: grayscale(0%) opacity(100%); /* Color on hover */
+        }

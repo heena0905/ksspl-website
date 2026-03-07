@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KSSPL | Digital Transformation in Transport & Logistics ERP</title>
+    <meta name="description" content="Kataria Software Solution Private Limited (KSSPL) is revolutionizing the logistics & transport industry with cutting-edge ERP and TMS solutions.">
+    <meta name="keywords" content="KSSPL, logistics software, transport management system, TMS, ERP, supply chain, digital transformation">
+    <meta name="author" content="Kataria Software Solution Private Limited">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+    </style>
+</head>
+<body>
+
+    <div id="app" class="min-h-screen flex flex-col">
+
+        <header class="bg-white shadow-md sticky top-0 z-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center h-20">
+                    
+                    <a href="index.html#home" class="flex items-center space-x-3 text-2xl font-bold text-gray-900" aria-label="KSSPL Home">
+                        <img src="company logo.png" alt="Company Logo" width="100" height="100">
+                        <!-- <div class="w-8 h-8 rounded-lg bg-yellow-600 flex items-center justify-center text-white font-extrabold text-sm shadow-md">K</div> -->
+                        <span class="text-gray-900 hidden sm:inline">KSSPL</span>
+                        <span class="text-yellow-700 text-sm hidden sm:inline font-medium">Logistics Tech</span>
+                    </a>
+
+                    <nav class="hidden md:flex space-x-6 text-gray-700 font-medium" id="desktop-nav">
+                        <a href="index.html#home" class="hover:text-yellow-700 transition duration-150">Home</a>
+                        <a href="index.html#about" class="hover:text-yellow-700 transition duration-150">About</a>
+                        <a href="services.html" class="active hover:text-yellow-700 transition duration-150">Services</a>
+                        <a href="index.html#testimonials" class="hover:text-yellow-700 transition duration-150">Testimonials</a>
+                        <a href="index.html#contact" class="hover:text-yellow-700 transition duration-150">Contact</a>
+                        <a href="index.html#career" class="text-white bg-yellow-600 px-4 py-2 rounded-lg hover:bg-yellow-700 transition duration-150">Career</a>
+                    </nav>
+
+                    <button id="mobile-menu-button" type="button" class="md:hidden text-gray-500 hover:text-gray-700 focus:outline-none focus:ring-2 focus:ring-yellow-600 rounded-lg p-2" aria-controls="mobile-menu" aria-expanded="false">
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="md:hidden hidden" id="mobile-menu">
+                <nav class="px-2 pt-2 pb-3 space-y-1 sm:px-3 text-center">
+                    <a href="index.html#home" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50">Home</a>
+                    <a href="index.html#about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50">About</a>
+                    <a href="services.html" class="active block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50">Services</a>
+                    <a href="index.html#testimonials" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50">Testimonials</a>
+                    <a href="index.html#contact" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50">Contact</a>
+                    <a href="index.html#career" class="block px-3 py-2 rounded-md text-base font-medium text-white bg-yellow-600 hover:bg-yellow-700">Career</a>
+                </nav>
+            </div>
+        </header>
+        <main class="flex-grow">
+            <section id="page-services" class="py-16 bg-gray-50">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <h2 class="text-4xl font-extrabold text-gray-900 text-center mb-12">Our Integrated ERP Solutions</h2>
+                    <p class="text-center text-xl text-gray-600 mb-12 max-w-3xl mx-auto">
+                        We deliver a fully integrated ERP ecosystem built specifically for the logistics and transport industry—connecting every operational, accounting, and tracking function into one seamless digital framework.
+                    </p>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+                        <div class="bg-white p-8 rounded-xl shadow-lg border-t-4 border-yellow-600">
+                            <div class="text-4xl text-yellow-600 mb-4">📦</div>
+                            <h3 class="text-2xl font-bold text-gray-900">Transport Management System (TMS)</h3>
+                            <p class="mt-3 text-gray-600">Manages the full transport lifecycle - from booking, dispatch, and documentation to billing and real-time tracking - ensuring accuracy and transparency.</p>
+                        </div>
+                        <div class="bg-white p-8 rounded-xl shadow-lg border-t-4 border-yellow-600">
+                            <div class="text-4xl text-yellow-600 mb-4">📱</div>
+                            <h3 class="text-2xl font-bold text-gray-900">Driver Application</h3>
+                            <p class="mt-3 text-gray-600">Simplifies on-ground operations with route updates, trip logs, proof of delivery, and instant communication between fleet and office.</p>
+                        </div>
+                        <div class="bg-white p-8 rounded-xl shadow-lg border-t-4 border-yellow-600">
+                            <div class="text-4xl text-yellow-600 mb-4">👨‍💼</div>
+                            <h3 class="text-2xl font-bold text-gray-900">HRM Application</h3>
+                            <p class="mt-3 text-gray-600">Automates attendance, payroll, leave management, and performance monitoring to strengthen workforce efficiency.</p>
+                        </div>
+                    </div>
+
+                    <h3 class="text-3xl font-bold text-gray-900 text-center mb-8">Comprehensive ERP Features</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-white p-6 rounded-xl shadow-md border-l-4 border-yellow-500">
+                            <h4 class="text-xl font-semibold text-gray-800">Booking & Tracking</h4>
+                            <p class="text-gray-600 mt-1">Real-time consignment tracking providing complete visibility across your entire logistics network.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-xl shadow-md border-l-4 border-yellow-500">
+                            <h4 class="text-xl font-semibold text-gray-800">Advance Management</h4>
+                            <p class="text-gray-600 mt-1">Streamlined management of driver and vehicle advances with automated approvals and tracking.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-xl shadow-md border-l-4 border-yellow-500">
+                            <h4 class="text-xl font-semibold text-gray-800">Driver Settlements</h4>
+                            <p class="text-gray-600 mt-1">Hassle-free settlement processing that eliminates disputes and ensures accurate, timely payments.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-xl shadow-md border-l-4 border-yellow-500">
+                            <h4 class="text-xl font-semibold text-gray-800">Smart Billing</h4>
+                            <p class="text-gray-600 mt-1">Accurate invoicing with customizable templates, reducing errors and accelerating payment cycles.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-xl shadow-md border-l-4 border-yellow-500">
+                            <h4 class="text-xl font-semibold text-gray-800">Document Hub</h4>
+                            <p class="text-gray-600 mt-1">Centralized vehicle documentation storage eliminating paperwork and ensuring compliance.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-xl shadow-md border-l-4 border-yellow-500">
+                            <h4 class="text-xl font-semibold text-gray-800">Maintenance Tracking</h4>
+                            <p class="text-gray-600 mt-1">Proactive maintenance scheduling preventing costly breakdowns and extending vehicle life.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>    
+        <footer class="bg-gray-900 text-white py-10 mt-auto">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center border-t border-gray-700 pt-6 mt-6">
+                    <p class="text-sm text-gray-400">&copy; 2024 Kataria Software Solution Private Limited (KSSPL). All rights reserved.</p>
+                    <p class="text-xs text-gray-500 mt-1">Accelerating success through tech-driven transportation solutions.</p>
+                </div>
+            </div>
+        </footer>
+   <script src="script.js"></script>
+</body>
+</html>        
