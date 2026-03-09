@@ -125,6 +125,8 @@
 
     // --- Routing Logic ---
     function updateRoute() {
+        if (pages.length === 0) return; // Prevent routing errors on non-SPA pages like services.html and testimonials.html
+
         // Get the current hash from the URL, default to #home
         const currentHash = window.location.hash || '#home';
         const targetPageId = currentHash.replace('#', 'page-');
@@ -160,15 +162,19 @@
     }
 
     // Listen for hash changes (when user clicks a navigation link)
-    window.addEventListener('hashchange', updateRoute);
+    window.addEventListener('hashchange', () => {
+        if (pages.length > 0) updateRoute();
+    });
 
     // Initial route load (when the page first loads)
     window.addEventListener('load', () => {
-        // If no hash is set, set it to #home initially
-        if (!window.location.hash) {
-            window.location.hash = '#home';
+        if (pages.length > 0) {
+            // If no hash is set, set it to #home initially
+            if (!window.location.hash) {
+                window.location.hash = '#home';
+            }
+            updateRoute();
         }
-        updateRoute();
     });
 
     // Handle mobile link clicks to close the menu
