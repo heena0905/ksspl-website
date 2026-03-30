@@ -33,64 +33,118 @@
         careerForm.reset(); // Clear the form on close
     }
 
-    // --- Form Submission Handler (WhatsApp Logic) ---
-    window.handleApplicationSubmit = function (event) {
+    // --- Form Submission Handler (WhatsApp Logic with Google Drive Upload) ---
+    // PLACEHOLDER: Paste your Google Apps Script Web App URL between the quotes below
+    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbw-c5TA3k53ib5zdWUafJZdMpuUWtu30ADan779Xg06VHNTnnTrULE71rin2jSvj8SzBQ/exec"; 
+
+    window.handleApplicationSubmit = async function (event) {
         event.preventDefault();
 
-        // 1. Get form data
-        const name = document.getElementById('applicant-name').value;
-        const email = document.getElementById('applicant-email').value;
-        const phone = document.getElementById('applicant-phone').value;
-        const position = document.getElementById('position-applied').value;
-        const message = document.getElementById('applicant-message').value;
+        const submitBtn = document.querySelector('#career-form button[type="submit"]');
+        const originalBtnText = submitBtn.innerHTML;
 
-        // Note: Resume file path is irrelevant for WhatsApp text content
-        const resumeInput = document.getElementById('applicant-resume');
-        const resumeFile = resumeInput.files[0];
+        try {
+            // 1. Get form data
+            const name = document.getElementById('applicant-name').value;
+            const email = document.getElementById('applicant-email').value;
+            const phone = document.getElementById('applicant-phone').value;
+            const position = document.getElementById('position-applied').value;
+            const message = document.getElementById('applicant-message').value;
 
-        // WhatsApp target number from the original JS: '7496846755'
-        const contactNumber = '7496846755';
+            const resumeInput = document.getElementById('applicant-resume');
+            const resumeFile = resumeInput.files[0];
 
-        // 2. Build the structured message text (URL encoded)
-        // Using URL-friendly line breaks (%0A) and bold markers (*)
-        const applicationDetails = `*KSSPL Career Application*\n%0A%0A` +
-            `*Position:* ${position}%0A` +
-            `*Applicant:* ${name}%0A` +
-            `*Email:* ${email}%0A` +
-            `*Phone:* ${phone}%0A%0A` +
-            `*Message:* ${message || 'N/A'}%0A%0A` +
-            `*IMPORTANT:* Please attach your resume file now.`;
+            if (!resumeFile) {
+                alert("Please attach your PDF resume first.");
+                return;
+            }
 
-        const encodedMessage = encodeURIComponent(applicationDetails);
+            // Show loading state visually
+            submitBtn.innerHTML = 'Uploading Resume... Please wait ⏳';
+            submitBtn.disabled = true;
 
-        // 3. Construct the WhatsApp URL
-        const whatsappUrl = `https://wa.me/${contactNumber}?text=${encodedMessage}`;
+            // 2. Convert File to Base64
+            const base64Data = await new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.onload = () => {
+                    const base64String = reader.result.split(',')[1];
+                    resolve(base64String);
+                };
+                reader.onerror = error => reject(error);
+                reader.readAsDataURL(resumeFile);
+            });
 
-        // 4. Confirmation (Custom Dialog)
-        const confirmationDialog = document.createElement('div');
-        confirmationDialog.innerHTML = `
-            <div class="fixed inset-0 bg-gray-900 bg-opacity-80 flex items-center justify-center z-[200]">
-                <div class="bg-white rounded-xl shadow-2xl p-6 w-full max-w-sm text-center">
-                    <h4 class="text-xl font-bold text-green-600 mb-3">Application Process Step 2/2</h4>
-                    <p class="text-gray-700 mb-4">You will now be redirected to WhatsApp to send the message.</p>
-                    <p class="text-red-600 font-semibold mb-6">*** IMPORTANT ***</p>
-                    <p class="text-sm text-gray-700 mb-6">Once WhatsApp opens, you **MUST manually attach your PDF resume** (the file you selected: <strong>${resumeFile ? resumeFile.name : 'None Selected'}</strong>) and then click 'Send'.</p>
-                    <button id="proceed-btn" class="w-full py-2 px-4 bg-yellow-600 text-white font-medium rounded-lg hover:bg-yellow-700 transition duration-150">
-                        Proceed to WhatsApp
-                    </button>
-                </div>
-            </div>
-        `;
+            // 3. Send via POST to Google Apps Script
+            let driveFileUrl = "";
+            let alertWarning = false;
 
-        document.body.appendChild(confirmationDialog);
+            if (GOOGLE_SCRIPT_URL && GOOGLE_SCRIPT_URL !== "YOUR_GOOGLE_SCRIPT_WEB_APP_URL_HERE") {
+                try {
+                    const response = await fetch(GOOGLE_SCRIPT_URL, {
+                        method: 'POST',
+                        body: JSON.stringify({
+                            fileName: `${name.replace(/\s+/g, '_')}_Resume.pdf`,
+                            mimeType: resumeFile.type,
+                            data: base64Data
+                        }),
+                        headers: {
+                            "Content-Type": "text/plain;charset=utf-8",
+                        }
+                    });
 
-        document.getElementById('proceed-btn').addEventListener('click', () => {
-            // Open WhatsApp link
+                    const responseText = await response.text();
+                    try {
+                        const result = JSON.parse(responseText);
+                        if (result.status === "success" && result.url) {
+                            driveFileUrl = result.url;
+                        } else {
+                            console.error("Upload response error:", result);
+                            alertWarning = "Upload failed. Your details will still be sent normally.";
+                        }
+                    } catch(parseErr) {
+                        console.error("Failed to parse response:", responseText);
+                        alertWarning = "Google Script did not return JSON. Ensure it is deployed with access 'Anyone'. Proceeding normally.";
+                    }
+                } catch (fetchError) {
+                    console.error("Fetch Error (likely CORS because of Google Script settings):", fetchError);
+                    alertWarning = "Network error while uploading (did you deploy script with access 'Anyone'?). Proceeding normally sending details.";
+                }
+            } else {
+                alertWarning = "Setup Warning: We haven't set up the Google Apps Script URL yet! Proceeding normally.";
+            }
+
+            if (alertWarning) alert(alertWarning);
+
+            // 4. Build the structured message text for WhatsApp (auto-formats with Drive URL if successful)
+            const contactNumber = '7496846755';
+
+            let applicationDetails = `*KSSPL Career Application*\n\n` +
+                `*Position:* ${position}\n` +
+                `*Applicant:* ${name}\n` +
+                `*Email:* ${email}\n` +
+                `*Phone:* ${phone}\n\n` +
+                `*Message:* ${message || 'N/A'}\n\n`;
+
+            if (driveFileUrl) {
+                applicationDetails += `*Resume Link (Google Drive):* ${driveFileUrl}`;
+            } else {
+                applicationDetails += `*IMPORTANT:* Please attach your resume manually (automatic backup missing).`;
+            }
+
+            const encodedMessage = encodeURIComponent(applicationDetails);
+            const whatsappUrl = `https://wa.me/${contactNumber}?text=${encodedMessage}`;
+
+            // 5. Open WhatsApp link & Close Modal
             window.open(whatsappUrl, '_blank');
-            // Clean up and close modal
-            document.body.removeChild(confirmationDialog);
             closeApplicationModal();
-        });
+
+        } catch (error) {
+            console.error(error);
+            alert("An error occurred: " + error.message + "\n\nPlease check the console for more details.");
+        } finally {
+            submitBtn.innerHTML = originalBtnText;
+            submitBtn.disabled = false;
+        }
     }
 
     // --- Contact Form Submission Handler ---
@@ -239,24 +293,54 @@
 
         observer.observe(testimonialsSection);
     }
-    //     document.addEventListener('DOMContentLoaded', function() {
-    //     const mobileMenuButton = document.getElementById('mobile-menu-button');
-    //     const mobileMenu = document.getElementById('mobile-menu');
-    // 
-    //     if (mobileMenuButton && mobileMenu) {
-    //         mobileMenuButton.addEventListener('click', function() {
-    //             // Get the current expanded state
-    //             const isExpanded = this.getAttribute('aria-expanded') === 'true' || false;
-    // 
-    //             // Toggle the expanded state
-    //             this.setAttribute('aria-expanded', !isExpanded);
-    //             
-    //             // Toggle visibility using Tailwind's 'hidden' class
-    //             mobileMenu.classList.toggle('hidden');
-    //         });
-    //     } else {
-    //         console.error('Mobile menu elements not found in the DOM.');
-    //     }
-    // });
+    // --- Dynamic Career Page ---
+    const jobs = [
+        {
+            id: 'pos-1',
+            title: 'Software Engineer (Backend)',
+            location: 'Remote/India',
+            experience: '3+ Years'
+        },
+        {
+            id: 'pos-2',
+            title: 'Logistics ERP Consultant',
+            location: 'India',
+            experience: '5+ Years'
+        },
+        {
+            id: 'pos-3',
+            title: 'Mobile App Developer (React Native)',
+            location: 'Remote/India',
+            experience: '2+ Years'
+        }
+    ];
+
+    function renderJobs() {
+        const jobsContainer = document.getElementById('job-listings');
+        if (!jobsContainer) return; // Not on the page
+
+        jobsContainer.innerHTML = ''; // Clear container
+
+        jobs.forEach(job => {
+            const jobElement = document.createElement('div');
+            jobElement.className = 'p-6 bg-gray-50 rounded-xl shadow-md flex justify-between items-center flex-wrap transform transition duration-200 hover:shadow-lg hover:-translate-y-1';
+            
+            jobElement.innerHTML = `
+                <div>
+                    <h3 class="text-2xl font-semibold text-gray-800">${job.title}</h3>
+                    <p class="text-gray-600" id="${job.id}">Location: ${job.location} | Experience: ${job.experience}</p>
+                </div>
+                <button onclick="openApplicationModal('${job.title}')"
+                    class="mt-3 sm:mt-0 text-yellow-600 border border-yellow-600 px-4 py-2 rounded-lg hover:bg-yellow-50 transition duration-150 relative overflow-hidden group">
+                    <span class="relative z-10">Apply Now</span>
+                    <div class="absolute inset-0 h-full w-full scale-0 rounded-lg transition-all duration-300 group-hover:scale-100 group-hover:bg-yellow-50/50"></div>
+                </button>
+            `;
+            jobsContainer.appendChild(jobElement);
+        });
+    }
+
+    // Render the jobs on script run
+    renderJobs();
 
 })();
