@@ -35,7 +35,7 @@
 
     // --- Form Submission Handler (WhatsApp Logic with Google Drive Upload) ---
     // PLACEHOLDER: Paste your Google Apps Script Web App URL between the quotes below
-    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbw-c5TA3k53ib5zdWUafJZdMpuUWtu30ADan779Xg06VHNTnnTrULE71rin2jSvj8SzBQ/exec"; 
+    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbw-c5TA3k53ib5zdWUafJZdMpuUWtu30ADan779Xg06VHNTnnTrULE71rin2jSvj8SzBQ/exec";
 
     window.handleApplicationSubmit = async function (event) {
         event.preventDefault();
@@ -101,7 +101,7 @@
                             console.error("Upload response error:", result);
                             alertWarning = "Upload failed. Your details will still be sent normally.";
                         }
-                    } catch(parseErr) {
+                    } catch (parseErr) {
                         console.error("Failed to parse response:", responseText);
                         alertWarning = "Google Script did not return JSON. Ensure it is deployed with access 'Anyone'. Proceeding normally.";
                     }
@@ -297,21 +297,21 @@
     const jobs = [
         {
             id: 'pos-1',
-            title: 'Software Engineer (Backend)',
-            location: 'Remote/India',
-            experience: '3+ Years'
+            title: 'Software Developer (Backend)',
+            location: 'On-Site/Sohna,Haryana',
+            experience: '1+ Years'
         },
         {
             id: 'pos-2',
-            title: 'Logistics ERP Consultant',
-            location: 'India',
-            experience: '5+ Years'
+            title: 'MIS Executive',
+            location: 'On-Site/Sohna,Haryana',
+            experience: '1+ Years'
         },
         {
             id: 'pos-3',
-            title: 'Mobile App Developer (React Native)',
-            location: 'Remote/India',
-            experience: '2+ Years'
+            title: 'Frontend Developer (Angular)',
+            location: 'On-Site/Sohna,Haryana',
+            experience: '1+ Years'
         }
     ];
 
@@ -324,9 +324,9 @@
         jobs.forEach(job => {
             const jobElement = document.createElement('div');
             jobElement.className = 'p-6 bg-gray-50 rounded-xl shadow-md flex justify-between items-center flex-wrap transform transition duration-200 hover:shadow-lg hover:-translate-y-1';
-            
+
             jobElement.innerHTML = `
-                <div>
+                <div class="text-left w-full sm:w-auto mb-4 sm:mb-0">
                     <h3 class="text-2xl font-semibold text-gray-800">${job.title}</h3>
                     <p class="text-gray-600" id="${job.id}">Location: ${job.location} | Experience: ${job.experience}</p>
                 </div>
